@@ -7,26 +7,26 @@ const app = express()
 
 
 
-app.get('/obsracles', (request, response) => {
-     const obsracles = generateObstacles()
-     response.json(obsracles);
+app.get('/obstacles', (request, response) => {
+     const obstacles = generateObstacles()
+     response.json(obstacles);
 })
 
 app.post('/move-submarine-up', (req, res) => {
     moveSubmarineUp();
-    response.json({ position: submarinePosition });
+    res.json({ position: submarinePosition });
 });
 
 
 app.post('/move-submarine-forward', (req, res) => {
     moveSubmarineForward();
-    response.json({ position: submarinePosition });
+    res.json({ position: submarinePosition });
 });
 
 
 app.get('/update-submarine', (req, res) => {
     updateSubmarinePosition();  
-    response.json({ position: submarinePosition });
+    res.json({ position: submarinePosition });
 });
 
 
